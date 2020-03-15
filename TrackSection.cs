@@ -1,6 +1,9 @@
 namespace rail {
     public class TrackSection{
+        public string Name {get; private set;}
         public Train CurrentTrain {get; internal set;}
+
+        public TrafficSignal Signal {get; private set;}
 
         /// <summary>
         /// 1 length = 1 carriage length
@@ -17,7 +20,9 @@ namespace rail {
         /// <value></value>
         public bool PointsRight {get; set;}
 
-        public TrackSection(Crossing type){
+        public TrackSection(string name, string trafficSignalName, Crossing type){
+            Name = name;
+            Signal = new TrafficSignal(trafficSignalName);
             Type = type;
         }
 
