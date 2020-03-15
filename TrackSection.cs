@@ -1,6 +1,12 @@
 namespace rail {
     public class TrackSection{
-        public Train CurrentTrain {get; set;}
+        public Train CurrentTrain {get; internal set;}
+
+        /// <summary>
+        /// 1 length = 1 carriage length
+        /// </summary>
+        /// <value></value>
+        public int Length {get; private set;}
 
         public Crossing Type {get; private set;}
 
