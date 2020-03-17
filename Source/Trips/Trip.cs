@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -13,11 +14,16 @@ namespace rail{
 
         public ReadOnlyCollection<Station> Stations {get{return stations.AsReadOnly();}}
 
-        public Trip(TripType type, Line line, Train train, Station[] stations){
+        public Station LastPassedStation {get; private set;}
+
+        public DateTime StartTime {get; private set;}
+
+        public Trip(TripType type, Line line, Train train, Station[] stations, DateTime startTime){
             Type = type;
             Line = line;
             Train = train;
             this.stations.AddRange(stations);
+            this.StartTime = startTime;
         }
     }
 }

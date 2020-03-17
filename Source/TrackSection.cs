@@ -20,7 +20,10 @@ namespace rail {
         /// <value></value>
         public bool PointsRight {get; set;}
 
-        public TrackSection(string name, string trafficSignalName, Crossing type){
+        public TrackSection SectionInFront {get; private set;}
+        public TrackSection SectionInBack {get; private set;}
+
+        public TrackSection(string name, string trafficSignalName, Crossing type, TrackSection front = null, TrackSection back = null){
             Name = name;
             Signal = new TrafficSignal(trafficSignalName);
             Type = type;
